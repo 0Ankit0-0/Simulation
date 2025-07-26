@@ -1,0 +1,1415 @@
+{
+  "suits": [
+    {
+      "section_number": "5",
+      "title": "Application of the Code to Revenue Courts",
+      "chapter": "1"
+    },
+    {
+      "section_number": "6",
+      "title": "Pecuniary jurisdiction",
+      "chapter": "2"
+    },
+    {
+      "section_number": "7",
+      "title": "Provincial Small Cause Courts",
+      "chapter": "2"
+    },
+    {
+      "section_number": "8",
+      "title": "Presidency Small Cause Courts",
+      "chapter": "2"
+    },
+    {
+      "section_number": "9",
+      "title": "Courts to try all civil suits unless barred",
+      "chapter": "2"
+    },
+    {
+      "section_number": "15",
+      "title": "Court in which suits to be instituted",
+      "chapter": "2"
+    },
+    {
+      "section_number": "16",
+      "title": "Suits to be instituted where subject-matter situate",
+      "chapter": "2"
+    },
+    {
+      "section_number": "17",
+      "title": "Suits for immovable property situate within jurisdiction of different Courts",
+      "chapter": "2"
+    },
+    {
+      "section_number": "19",
+      "title": "Suits for compensation for wrongs to person or movables",
+      "chapter": "2"
+    },
+    {
+      "section_number": "20",
+      "title": "Other suits to be instituted where defendants reside or cause of action arises",
+      "chapter": "2"
+    },
+    {
+      "section_number": "22",
+      "title": "Power to transfer suits which may be instituted in more than one Court",
+      "chapter": "2"
+    },
+    {
+      "section_number": "25",
+      "title": "Power of Supreme Court to transfer suits, etc",
+      "chapter": "2"
+    },
+    {
+      "section_number": "26",
+      "title": "Institution of suits",
+      "chapter": "3"
+    },
+    {
+      "section_number": "35",
+      "title": "Costs",
+      "chapter": "3"
+    },
+    {
+      "section_number": "79",
+      "title": "Suits by or against Government",
+      "chapter": "6"
+    },
+    {
+      "section_number": "80",
+      "title": "Notice",
+      "chapter": "6"
+    },
+    {
+      "section_number": "85",
+      "title": "Persons specially appointed by Government to prosecute or defend on behalf of foreign Rulers",
+      "chapter": "7"
+    },
+    {
+      "section_number": "86",
+      "title": "Suits against foreign Rulers, Ambassadors and Envoys",
+      "chapter": "7"
+    },
+    {
+      "section_number": "87",
+      "title": "Style of foreign Rulers as parties to suits",
+      "chapter": "7"
+    },
+    {
+      "section_number": "107",
+      "title": "Powers of Appellate Court",
+      "chapter": "9"
+    },
+    {
+      "section_number": "115",
+      "title": "Revision",
+      "chapter": "9"
+    },
+    {
+      "section_number": "128",
+      "title": "Matters for which rules may provide",
+      "chapter": "11"
+    },
+    {
+      "section_number": "141",
+      "title": "Miscellaneous proceedings",
+      "chapter": "12"
+    },
+    {
+      "section_number": "147",
+      "title": "Consent or agreement by persons under disability",
+      "chapter": "12"
+    }
+  ],
+  "appeals": [
+    {
+      "section_number": "96",
+      "title": "Appeal from original decree",
+      "chapter": "8"
+    },
+    {
+      "section_number": "105",
+      "title": "Other orders",
+      "chapter": "9"
+    },
+    {
+      "section_number": "106",
+      "title": "What Courts to hear appeals",
+      "chapter": "9"
+    },
+    {
+      "section_number": "108",
+      "title": "Procedure in appeals from appellate decrees and orders",
+      "chapter": "9"
+    },
+    {
+      "section_number": "109",
+      "title": "When appeals lie to the Supreme Court",
+      "chapter": "9"
+    },
+    {
+      "section_number": "111",
+      "title": "[Omitted]",
+      "chapter": "9"
+    },
+    {
+      "section_number": "111A.",
+      "title": "[Omitted]",
+      "chapter": "9"
+    },
+    {
+      "section_number": "112",
+      "title": "Savings",
+      "chapter": "9"
+    },
+    {
+      "section_number": "128",
+      "title": "Matters for which rules may provide",
+      "chapter": "11"
+    }
+  ],
+  "execution": [
+    {
+      "section_number": "2",
+      "title": "Definitions",
+      "chapter": "1"
+    },
+    {
+      "section_number": "7",
+      "title": "Provincial Small Cause Courts",
+      "chapter": "2"
+    },
+    {
+      "section_number": "11",
+      "title": "Res judicata",
+      "chapter": "2"
+    },
+    {
+      "section_number": "24",
+      "title": "General power of transfer and withdrawal",
+      "chapter": "2"
+    },
+    {
+      "section_number": "35A.",
+      "title": "Compensatory costs in respect of false or vexatious claims or defences",
+      "chapter": "3"
+    },
+    {
+      "section_number": "36",
+      "title": "Application to orders",
+      "chapter": "4"
+    },
+    {
+      "section_number": "37",
+      "title": "Definition of Court which passed a decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "38",
+      "title": "Court by which decree may be executed",
+      "chapter": "4"
+    },
+    {
+      "section_number": "39",
+      "title": "Transfer of decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "40",
+      "title": "Transfer of decree to Court in another State",
+      "chapter": "4"
+    },
+    {
+      "section_number": "41",
+      "title": "Result of execution proceedings to be certified",
+      "chapter": "4"
+    },
+    {
+      "section_number": "42",
+      "title": "Powers of Court in executing transferred decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "43",
+      "title": "Execution of decrees passed by Civil Courts in places to which this Code does not extend",
+      "chapter": "4"
+    },
+    {
+      "section_number": "44",
+      "title": "Execution of decrees passed by Revenue Courts in places to which this Code does not extend",
+      "chapter": "4"
+    },
+    {
+      "section_number": "44A.",
+      "title": "Execution of decrees passed by Courts in reciprocating territory",
+      "chapter": "4"
+    },
+    {
+      "section_number": "45",
+      "title": "Execution of decrees outside India",
+      "chapter": "4"
+    },
+    {
+      "section_number": "46",
+      "title": "Precepts",
+      "chapter": "4"
+    },
+    {
+      "section_number": "47",
+      "title": "Questions to be determined by the Court executing decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "48",
+      "title": "[Repealed]",
+      "chapter": "4"
+    },
+    {
+      "section_number": "51",
+      "title": "Powers of Court to enforce execution",
+      "chapter": "5"
+    },
+    {
+      "section_number": "55",
+      "title": "Arrest and detention",
+      "chapter": "5"
+    },
+    {
+      "section_number": "56",
+      "title": "Prohibition of arrest or detention of women in execution of decree for money",
+      "chapter": "5"
+    },
+    {
+      "section_number": "58",
+      "title": "Detention and release",
+      "chapter": "5"
+    },
+    {
+      "section_number": "60",
+      "title": "Property liable to attachment and sale in execution of decree",
+      "chapter": "5"
+    },
+    {
+      "section_number": "61",
+      "title": "Partial exemption of agricultural produce",
+      "chapter": "5"
+    },
+    {
+      "section_number": "63",
+      "title": "Property attached in execution of decrees of several Courts",
+      "chapter": "5"
+    },
+    {
+      "section_number": "65",
+      "title": "Purchaser's title",
+      "chapter": "5"
+    },
+    {
+      "section_number": "67",
+      "title": "Power for State Government to make rules as to sales of land in execution of decrees for payment of money",
+      "chapter": "5"
+    },
+    {
+      "section_number": "68",
+      "title": "[Repealed]",
+      "chapter": "5"
+    },
+    {
+      "section_number": "73",
+      "title": "Proceeds of execution sale to be rateably distributed among decree-holders",
+      "chapter": "5"
+    },
+    {
+      "section_number": "74",
+      "title": "Resistance to execution",
+      "chapter": "5"
+    },
+    {
+      "section_number": "78",
+      "title": "Commissions issued by foreign Courts",
+      "chapter": "6"
+    },
+    {
+      "section_number": "81",
+      "title": "Exemption from arrest and personal appearance",
+      "chapter": "6"
+    },
+    {
+      "section_number": "82",
+      "title": "Execution of decree",
+      "chapter": "6"
+    },
+    {
+      "section_number": "104",
+      "title": "Orders from which appeal lies",
+      "chapter": "8"
+    },
+    {
+      "section_number": "118",
+      "title": "Execution of decree before ascertainment of costs",
+      "chapter": "10"
+    },
+    {
+      "section_number": "132",
+      "title": "Exemption of certain women from personal appearance",
+      "chapter": "11"
+    },
+    {
+      "section_number": "134",
+      "title": "Arrest other than in execution of decree",
+      "chapter": "11"
+    },
+    {
+      "section_number": "135",
+      "title": "Exemption from arrest under civil process",
+      "chapter": "11"
+    },
+    {
+      "section_number": "136",
+      "title": "Procedure where person to be arrested or property to be attached is out side district",
+      "chapter": "12"
+    },
+    {
+      "section_number": "145",
+      "title": "Enforcement of liability of surety",
+      "chapter": "12"
+    }
+  ],
+  "summons": [
+    {
+      "section_number": "27",
+      "title": "Summons to defendants",
+      "chapter": "3"
+    },
+    {
+      "section_number": "28",
+      "title": "Service of summons where defendant resides in another State",
+      "chapter": "3"
+    },
+    {
+      "section_number": "29",
+      "title": "Service of foreign summonses",
+      "chapter": "3"
+    },
+    {
+      "section_number": "30",
+      "title": "Power to order discovery and the like",
+      "chapter": "3"
+    },
+    {
+      "section_number": "31",
+      "title": "Summons to witness",
+      "chapter": "3"
+    },
+    {
+      "section_number": "32",
+      "title": "Penalty for default",
+      "chapter": "3"
+    },
+    {
+      "section_number": "128",
+      "title": "Matters for which rules may provide",
+      "chapter": "11"
+    },
+    {
+      "section_number": "135",
+      "title": "Exemption from arrest under civil process",
+      "chapter": "11"
+    },
+    {
+      "section_number": "143",
+      "title": "Postage",
+      "chapter": "12"
+    }
+  ],
+  "pleadings": [],
+  "judgment": [
+    {
+      "section_number": "2",
+      "title": "Definitions",
+      "chapter": "1"
+    },
+    {
+      "section_number": "13",
+      "title": "When foreign judgment not conclusive",
+      "chapter": "2"
+    },
+    {
+      "section_number": "14",
+      "title": "Presumption as to foreign judgments",
+      "chapter": "2"
+    },
+    {
+      "section_number": "33",
+      "title": "Judgment and decree",
+      "chapter": "3"
+    },
+    {
+      "section_number": "42",
+      "title": "Powers of Court in executing transferred decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "44A.",
+      "title": "Execution of decrees passed by Courts in reciprocating territory",
+      "chapter": "4"
+    },
+    {
+      "section_number": "46",
+      "title": "Precepts",
+      "chapter": "4"
+    },
+    {
+      "section_number": "49",
+      "title": "Transferee",
+      "chapter": "4"
+    },
+    {
+      "section_number": "50",
+      "title": "Legal representative",
+      "chapter": "4"
+    },
+    {
+      "section_number": "51",
+      "title": "Powers of Court to enforce execution",
+      "chapter": "5"
+    },
+    {
+      "section_number": "52",
+      "title": "Enforcement of decree against legal representative",
+      "chapter": "5"
+    },
+    {
+      "section_number": "55",
+      "title": "Arrest and detention",
+      "chapter": "5"
+    },
+    {
+      "section_number": "57",
+      "title": "Subsistence-allowance",
+      "chapter": "5"
+    },
+    {
+      "section_number": "58",
+      "title": "Detention and release",
+      "chapter": "5"
+    },
+    {
+      "section_number": "59",
+      "title": "Release on ground of illness",
+      "chapter": "5"
+    },
+    {
+      "section_number": "60",
+      "title": "Property liable to attachment and sale in execution of decree",
+      "chapter": "5"
+    },
+    {
+      "section_number": "61",
+      "title": "Partial exemption of agricultural produce",
+      "chapter": "5"
+    },
+    {
+      "section_number": "62",
+      "title": "Seizure of property in dwelling-house",
+      "chapter": "5"
+    },
+    {
+      "section_number": "64",
+      "title": "Private alienation of property after attachment to be void",
+      "chapter": "5"
+    },
+    {
+      "section_number": "73",
+      "title": "Proceeds of execution sale to be rateably distributed among decree-holders",
+      "chapter": "5"
+    },
+    {
+      "section_number": "74",
+      "title": "Resistance to execution",
+      "chapter": "5"
+    },
+    {
+      "section_number": "98",
+      "title": "Decision where appeal heard by two or more Judges",
+      "chapter": "8"
+    },
+    {
+      "section_number": "100A.",
+      "title": "No further appeal in certain cases",
+      "chapter": "8"
+    },
+    {
+      "section_number": "109",
+      "title": "When appeals lie to the Supreme Court",
+      "chapter": "9"
+    },
+    {
+      "section_number": "114",
+      "title": "Review",
+      "chapter": "9"
+    },
+    {
+      "section_number": "135",
+      "title": "Exemption from arrest under civil process",
+      "chapter": "11"
+    },
+    {
+      "section_number": "152",
+      "title": "Amendment of judgments, decrees or orders",
+      "chapter": "13"
+    }
+  ],
+  "decree": [
+    {
+      "section_number": "2",
+      "title": "Definitions",
+      "chapter": "1"
+    },
+    {
+      "section_number": "7",
+      "title": "Provincial Small Cause Courts",
+      "chapter": "2"
+    },
+    {
+      "section_number": "9",
+      "title": "Courts to try all civil suits unless barred",
+      "chapter": "2"
+    },
+    {
+      "section_number": "11",
+      "title": "Res judicata",
+      "chapter": "2"
+    },
+    {
+      "section_number": "18",
+      "title": "Place of institution of suit where local limits of jurisdiction of Courts are uncertain",
+      "chapter": "2"
+    },
+    {
+      "section_number": "21A.",
+      "title": "Baron suit to set aside decree on objection as to place of suing",
+      "chapter": "2"
+    },
+    {
+      "section_number": "24",
+      "title": "General power of transfer and withdrawal",
+      "chapter": "2"
+    },
+    {
+      "section_number": "33",
+      "title": "Judgment and decree",
+      "chapter": "3"
+    },
+    {
+      "section_number": "34",
+      "title": "Interest",
+      "chapter": "3"
+    },
+    {
+      "section_number": "35",
+      "title": "Costs",
+      "chapter": "3"
+    },
+    {
+      "section_number": "35B.",
+      "title": "Costs for causing delay",
+      "chapter": "3"
+    },
+    {
+      "section_number": "36",
+      "title": "Application to orders",
+      "chapter": "4"
+    },
+    {
+      "section_number": "37",
+      "title": "Definition of Court which passed a decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "38",
+      "title": "Court by which decree may be executed",
+      "chapter": "4"
+    },
+    {
+      "section_number": "39",
+      "title": "Transfer of decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "40",
+      "title": "Transfer of decree to Court in another State",
+      "chapter": "4"
+    },
+    {
+      "section_number": "41",
+      "title": "Result of execution proceedings to be certified",
+      "chapter": "4"
+    },
+    {
+      "section_number": "42",
+      "title": "Powers of Court in executing transferred decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "43",
+      "title": "Execution of decrees passed by Civil Courts in places to which this Code does not extend",
+      "chapter": "4"
+    },
+    {
+      "section_number": "44",
+      "title": "Execution of decrees passed by Revenue Courts in places to which this Code does not extend",
+      "chapter": "4"
+    },
+    {
+      "section_number": "44A.",
+      "title": "Execution of decrees passed by Courts in reciprocating territory",
+      "chapter": "4"
+    },
+    {
+      "section_number": "45",
+      "title": "Execution of decrees outside India",
+      "chapter": "4"
+    },
+    {
+      "section_number": "46",
+      "title": "Precepts",
+      "chapter": "4"
+    },
+    {
+      "section_number": "47",
+      "title": "Questions to be determined by the Court executing decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "49",
+      "title": "Transferee",
+      "chapter": "4"
+    },
+    {
+      "section_number": "50",
+      "title": "Legal representative",
+      "chapter": "4"
+    },
+    {
+      "section_number": "51",
+      "title": "Powers of Court to enforce execution",
+      "chapter": "5"
+    },
+    {
+      "section_number": "52",
+      "title": "Enforcement of decree against legal representative",
+      "chapter": "5"
+    },
+    {
+      "section_number": "53",
+      "title": "Liability of ancestral property",
+      "chapter": "5"
+    },
+    {
+      "section_number": "54",
+      "title": "Partition of estate or separation of share",
+      "chapter": "5"
+    },
+    {
+      "section_number": "55",
+      "title": "Arrest and detention",
+      "chapter": "5"
+    },
+    {
+      "section_number": "56",
+      "title": "Prohibition of arrest or detention of women in execution of decree for money",
+      "chapter": "5"
+    },
+    {
+      "section_number": "58",
+      "title": "Detention and release",
+      "chapter": "5"
+    },
+    {
+      "section_number": "60",
+      "title": "Property liable to attachment and sale in execution of decree",
+      "chapter": "5"
+    },
+    {
+      "section_number": "61",
+      "title": "Partial exemption of agricultural produce",
+      "chapter": "5"
+    },
+    {
+      "section_number": "63",
+      "title": "Property attached in execution of decrees of several Courts",
+      "chapter": "5"
+    },
+    {
+      "section_number": "65",
+      "title": "Purchaser's title",
+      "chapter": "5"
+    },
+    {
+      "section_number": "67",
+      "title": "Power for State Government to make rules as to sales of land in execution of decrees for payment of money",
+      "chapter": "5"
+    },
+    {
+      "section_number": "68",
+      "title": "[Repealed]",
+      "chapter": "5"
+    },
+    {
+      "section_number": "73",
+      "title": "Proceeds of execution sale to be rateably distributed among decree-holders",
+      "chapter": "5"
+    },
+    {
+      "section_number": "74",
+      "title": "Resistance to execution",
+      "chapter": "5"
+    },
+    {
+      "section_number": "81",
+      "title": "Exemption from arrest and personal appearance",
+      "chapter": "6"
+    },
+    {
+      "section_number": "82",
+      "title": "Execution of decree",
+      "chapter": "6"
+    },
+    {
+      "section_number": "86",
+      "title": "Suits against foreign Rulers, Ambassadors and Envoys",
+      "chapter": "7"
+    },
+    {
+      "section_number": "92",
+      "title": "Public charities",
+      "chapter": "7"
+    },
+    {
+      "section_number": "96",
+      "title": "Appeal from original decree",
+      "chapter": "8"
+    },
+    {
+      "section_number": "97",
+      "title": "Appeal from final decree where no appeal from preliminary decree",
+      "chapter": "8"
+    },
+    {
+      "section_number": "98",
+      "title": "Decision where appeal heard by two or more Judges",
+      "chapter": "8"
+    },
+    {
+      "section_number": "99",
+      "title": "No decree to be reversed or modified for error or irregularity not affecting merits or jurisdiction",
+      "chapter": "8"
+    },
+    {
+      "section_number": "100",
+      "title": "Second appeal",
+      "chapter": "8"
+    },
+    {
+      "section_number": "100A.",
+      "title": "No further appeal in certain cases",
+      "chapter": "8"
+    },
+    {
+      "section_number": "102",
+      "title": "No second appeal in certain cases",
+      "chapter": "8"
+    },
+    {
+      "section_number": "104",
+      "title": "Orders from which appeal lies",
+      "chapter": "8"
+    },
+    {
+      "section_number": "105",
+      "title": "Other orders",
+      "chapter": "9"
+    },
+    {
+      "section_number": "106",
+      "title": "What Courts to hear appeals",
+      "chapter": "9"
+    },
+    {
+      "section_number": "108",
+      "title": "Procedure in appeals from appellate decrees and orders",
+      "chapter": "9"
+    },
+    {
+      "section_number": "109",
+      "title": "When appeals lie to the Supreme Court",
+      "chapter": "9"
+    },
+    {
+      "section_number": "112",
+      "title": "Savings",
+      "chapter": "9"
+    },
+    {
+      "section_number": "114",
+      "title": "Review",
+      "chapter": "9"
+    },
+    {
+      "section_number": "115",
+      "title": "Revision",
+      "chapter": "9"
+    },
+    {
+      "section_number": "118",
+      "title": "Execution of decree before ascertainment of costs",
+      "chapter": "10"
+    },
+    {
+      "section_number": "134",
+      "title": "Arrest other than in execution of decree",
+      "chapter": "11"
+    },
+    {
+      "section_number": "135",
+      "title": "Exemption from arrest under civil process",
+      "chapter": "11"
+    },
+    {
+      "section_number": "136",
+      "title": "Procedure where person to be arrested or property to be attached is out side district",
+      "chapter": "12"
+    },
+    {
+      "section_number": "144",
+      "title": "Application for restitution",
+      "chapter": "12"
+    },
+    {
+      "section_number": "145",
+      "title": "Enforcement of liability of surety",
+      "chapter": "12"
+    },
+    {
+      "section_number": "152",
+      "title": "Amendment of judgments, decrees or orders",
+      "chapter": "13"
+    },
+    {
+      "section_number": "153A.",
+      "title": "Power to amend decree or order where appeal is summarily dismissed",
+      "chapter": "13"
+    }
+  ],
+  "costs": [
+    {
+      "section_number": "35",
+      "title": "Costs",
+      "chapter": "3"
+    },
+    {
+      "section_number": "35A.",
+      "title": "Compensatory costs in respect of false or vexatious claims or defences",
+      "chapter": "3"
+    },
+    {
+      "section_number": "35B.",
+      "title": "Costs for causing delay",
+      "chapter": "3"
+    },
+    {
+      "section_number": "55",
+      "title": "Arrest and detention",
+      "chapter": "5"
+    },
+    {
+      "section_number": "73",
+      "title": "Proceeds of execution sale to be rateably distributed among decree-holders",
+      "chapter": "5"
+    },
+    {
+      "section_number": "88",
+      "title": "Where interpleader-suit may be instituted",
+      "chapter": "7"
+    },
+    {
+      "section_number": "118",
+      "title": "Execution of decree before ascertainment of costs",
+      "chapter": "10"
+    },
+    {
+      "section_number": "133",
+      "title": "Exemption of other persons",
+      "chapter": "11"
+    },
+    {
+      "section_number": "136",
+      "title": "Procedure where person to be arrested or property to be attached is out side district",
+      "chapter": "12"
+    },
+    {
+      "section_number": "137",
+      "title": "Language of subordinate Courts",
+      "chapter": "12"
+    },
+    {
+      "section_number": "144",
+      "title": "Application for restitution",
+      "chapter": "12"
+    },
+    {
+      "section_number": "153",
+      "title": "General power to amend",
+      "chapter": "13"
+    }
+  ],
+  "evidence": [
+    {
+      "section_number": "9",
+      "title": "Courts to try all civil suits unless barred",
+      "chapter": "2"
+    },
+    {
+      "section_number": "30",
+      "title": "Power to order discovery and the like",
+      "chapter": "3"
+    },
+    {
+      "section_number": "31",
+      "title": "Summons to witness",
+      "chapter": "3"
+    },
+    {
+      "section_number": "35B.",
+      "title": "Costs for causing delay",
+      "chapter": "3"
+    },
+    {
+      "section_number": "76",
+      "title": "Commission to another Court",
+      "chapter": "6"
+    },
+    {
+      "section_number": "103",
+      "title": "Power of High Court to determine issue of fact",
+      "chapter": "8"
+    },
+    {
+      "section_number": "107",
+      "title": "Powers of Appellate Court",
+      "chapter": "9"
+    },
+    {
+      "section_number": "133",
+      "title": "Exemption of other persons",
+      "chapter": "11"
+    },
+    {
+      "section_number": "137",
+      "title": "Language of subordinate Courts",
+      "chapter": "12"
+    },
+    {
+      "section_number": "138",
+      "title": "Power of High Court to require evidence to be recorded in English",
+      "chapter": "12"
+    }
+  ],
+  "jurisdiction": [
+    {
+      "section_number": "2",
+      "title": "Definitions",
+      "chapter": "1"
+    },
+    {
+      "section_number": "4",
+      "title": "Savings",
+      "chapter": "1"
+    },
+    {
+      "section_number": "5",
+      "title": "Application of the Code to Revenue Courts",
+      "chapter": "1"
+    },
+    {
+      "section_number": "6",
+      "title": "Pecuniary jurisdiction",
+      "chapter": "2"
+    },
+    {
+      "section_number": "7",
+      "title": "Provincial Small Cause Courts",
+      "chapter": "2"
+    },
+    {
+      "section_number": "9",
+      "title": "Courts to try all civil suits unless barred",
+      "chapter": "2"
+    },
+    {
+      "section_number": "10",
+      "title": "Stay of suit",
+      "chapter": "2"
+    },
+    {
+      "section_number": "11",
+      "title": "Res judicata",
+      "chapter": "2"
+    },
+    {
+      "section_number": "13",
+      "title": "When foreign judgment not conclusive",
+      "chapter": "2"
+    },
+    {
+      "section_number": "14",
+      "title": "Presumption as to foreign judgments",
+      "chapter": "2"
+    },
+    {
+      "section_number": "16",
+      "title": "Suits to be instituted where subject-matter situate",
+      "chapter": "2"
+    },
+    {
+      "section_number": "17",
+      "title": "Suits for immovable property situate within jurisdiction of different Courts",
+      "chapter": "2"
+    },
+    {
+      "section_number": "18",
+      "title": "Place of institution of suit where local limits of jurisdiction of Courts are uncertain",
+      "chapter": "2"
+    },
+    {
+      "section_number": "19",
+      "title": "Suits for compensation for wrongs to person or movables",
+      "chapter": "2"
+    },
+    {
+      "section_number": "20",
+      "title": "Other suits to be instituted where defendants reside or cause of action arises",
+      "chapter": "2"
+    },
+    {
+      "section_number": "21",
+      "title": "Objections to jurisdiction",
+      "chapter": "2"
+    },
+    {
+      "section_number": "22",
+      "title": "Power to transfer suits which may be instituted in more than one Court",
+      "chapter": "2"
+    },
+    {
+      "section_number": "23",
+      "title": "To what Court application lies",
+      "chapter": "2"
+    },
+    {
+      "section_number": "24",
+      "title": "General power of transfer and withdrawal",
+      "chapter": "2"
+    },
+    {
+      "section_number": "35",
+      "title": "Costs",
+      "chapter": "3"
+    },
+    {
+      "section_number": "35A.",
+      "title": "Compensatory costs in respect of false or vexatious claims or defences",
+      "chapter": "3"
+    },
+    {
+      "section_number": "37",
+      "title": "Definition of Court which passed a decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "39",
+      "title": "Transfer of decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "43",
+      "title": "Execution of decrees passed by Civil Courts in places to which this Code does not extend",
+      "chapter": "4"
+    },
+    {
+      "section_number": "51",
+      "title": "Powers of Court to enforce execution",
+      "chapter": "5"
+    },
+    {
+      "section_number": "71",
+      "title": "[Repealed]",
+      "chapter": "5"
+    },
+    {
+      "section_number": "76",
+      "title": "Commission to another Court",
+      "chapter": "6"
+    },
+    {
+      "section_number": "86",
+      "title": "Suits against foreign Rulers, Ambassadors and Envoys",
+      "chapter": "7"
+    },
+    {
+      "section_number": "92",
+      "title": "Public charities",
+      "chapter": "7"
+    },
+    {
+      "section_number": "95",
+      "title": "Compensation for obtaining arrest, attachment or injunction on insufficient ground",
+      "chapter": "7"
+    },
+    {
+      "section_number": "96",
+      "title": "Appeal from original decree",
+      "chapter": "8"
+    },
+    {
+      "section_number": "99",
+      "title": "No decree to be reversed or modified for error or irregularity not affecting merits or jurisdiction",
+      "chapter": "8"
+    },
+    {
+      "section_number": "105",
+      "title": "Other orders",
+      "chapter": "9"
+    },
+    {
+      "section_number": "106",
+      "title": "What Courts to hear appeals",
+      "chapter": "9"
+    },
+    {
+      "section_number": "107",
+      "title": "Powers of Appellate Court",
+      "chapter": "9"
+    },
+    {
+      "section_number": "112",
+      "title": "Savings",
+      "chapter": "9"
+    },
+    {
+      "section_number": "115",
+      "title": "Revision",
+      "chapter": "9"
+    },
+    {
+      "section_number": "118",
+      "title": "Execution of decree before ascertainment of costs",
+      "chapter": "10"
+    },
+    {
+      "section_number": "119",
+      "title": "Unauthorised persons not to address Court",
+      "chapter": "10"
+    },
+    {
+      "section_number": "120",
+      "title": "Provisions not applicable to High Court in original civil jurisdiction",
+      "chapter": "10"
+    },
+    {
+      "section_number": "125",
+      "title": "Power of other High Courts to make rules",
+      "chapter": "10"
+    },
+    {
+      "section_number": "127",
+      "title": "Publication of rules",
+      "chapter": "11"
+    },
+    {
+      "section_number": "128",
+      "title": "Matters for which rules may provide",
+      "chapter": "11"
+    },
+    {
+      "section_number": "129",
+      "title": "Power of High Courts to make rules as to their original Civil procedure",
+      "chapter": "11"
+    },
+    {
+      "section_number": "130",
+      "title": "Power of other High Courts to make rules as to matters other than procedure",
+      "chapter": "11"
+    },
+    {
+      "section_number": "135",
+      "title": "Exemption from arrest under civil process",
+      "chapter": "11"
+    },
+    {
+      "section_number": "136",
+      "title": "Procedure where person to be arrested or property to be attached is out side district",
+      "chapter": "12"
+    },
+    {
+      "section_number": "140",
+      "title": "Assessors in causes of salvage, etc",
+      "chapter": "12"
+    },
+    {
+      "section_number": "141",
+      "title": "Miscellaneous proceedings",
+      "chapter": "12"
+    },
+    {
+      "section_number": "144",
+      "title": "Application for restitution",
+      "chapter": "12"
+    }
+  ],
+  "parties": [
+    {
+      "section_number": "2",
+      "title": "Definitions",
+      "chapter": "1"
+    },
+    {
+      "section_number": "9",
+      "title": "Courts to try all civil suits unless barred",
+      "chapter": "2"
+    },
+    {
+      "section_number": "10",
+      "title": "Stay of suit",
+      "chapter": "2"
+    },
+    {
+      "section_number": "11",
+      "title": "Res judicata",
+      "chapter": "2"
+    },
+    {
+      "section_number": "13",
+      "title": "When foreign judgment not conclusive",
+      "chapter": "2"
+    },
+    {
+      "section_number": "21A.",
+      "title": "Baron suit to set aside decree on objection as to place of suing",
+      "chapter": "2"
+    },
+    {
+      "section_number": "22",
+      "title": "Power to transfer suits which may be instituted in more than one Court",
+      "chapter": "2"
+    },
+    {
+      "section_number": "24",
+      "title": "General power of transfer and withdrawal",
+      "chapter": "2"
+    },
+    {
+      "section_number": "25",
+      "title": "Power of Supreme Court to transfer suits, etc",
+      "chapter": "2"
+    },
+    {
+      "section_number": "35",
+      "title": "Costs",
+      "chapter": "3"
+    },
+    {
+      "section_number": "47",
+      "title": "Questions to be determined by the Court executing decree",
+      "chapter": "4"
+    },
+    {
+      "section_number": "80",
+      "title": "Notice",
+      "chapter": "6"
+    },
+    {
+      "section_number": "87",
+      "title": "Style of foreign Rulers as parties to suits",
+      "chapter": "7"
+    },
+    {
+      "section_number": "88",
+      "title": "Where interpleader-suit may be instituted",
+      "chapter": "7"
+    },
+    {
+      "section_number": "89",
+      "title": "Settlement of disputes outside the Court",
+      "chapter": "7"
+    },
+    {
+      "section_number": "96",
+      "title": "Appeal from original decree",
+      "chapter": "8"
+    },
+    {
+      "section_number": "99",
+      "title": "No decree to be reversed or modified for error or irregularity not affecting merits or jurisdiction",
+      "chapter": "8"
+    },
+    {
+      "section_number": "135",
+      "title": "Exemption from arrest under civil process",
+      "chapter": "11"
+    },
+    {
+      "section_number": "140",
+      "title": "Assessors in causes of salvage, etc",
+      "chapter": "12"
+    },
+    {
+      "section_number": "144",
+      "title": "Application for restitution",
+      "chapter": "12"
+    },
+    {
+      "section_number": "152",
+      "title": "Amendment of judgments, decrees or orders",
+      "chapter": "13"
+    }
+  ],
+  "service": [
+    {
+      "section_number": "2",
+      "title": "Definitions",
+      "chapter": "1"
+    },
+    {
+      "section_number": "28",
+      "title": "Service of summons where defendant resides in another State",
+      "chapter": "3"
+    },
+    {
+      "section_number": "29",
+      "title": "Service of foreign summonses",
+      "chapter": "3"
+    },
+    {
+      "section_number": "60",
+      "title": "Property liable to attachment and sale in execution of decree",
+      "chapter": "5"
+    },
+    {
+      "section_number": "81",
+      "title": "Exemption from arrest and personal appearance",
+      "chapter": "6"
+    },
+    {
+      "section_number": "89",
+      "title": "Settlement of disputes outside the Court",
+      "chapter": "7"
+    },
+    {
+      "section_number": "128",
+      "title": "Matters for which rules may provide",
+      "chapter": "11"
+    }
+  ]
+}
