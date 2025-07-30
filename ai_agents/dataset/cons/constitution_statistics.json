@@ -1,0 +1,35 @@
+{
+  "total_articles": 456,
+  "total_words": 74203,
+  "total_clauses": 784,
+  "total_keywords": 6522,
+  "total_qa_pairs": 6039,
+  "total_rag_chunks": 1186,
+  "avg_words_per_article": 162.72587719298247,
+  "avg_clauses_per_article": 1.719298245614035,
+  "theme_distribution": {
+    "federal_structure": 363,
+    "amendment": 77,
+    "governance": 265,
+    "fundamental_rights": 80,
+    "directive_principles": 34,
+    "emergency": 56
+  },
+  "qa_types_distribution": {
+    "overview": 456,
+    "title": 456,
+    "detailed_explanation": 456,
+    "clause_specific": 760,
+    "clause_explanation": 760,
+    "theme_based": 875,
+    "keyword_search": 2276
+  },
+  "chunk_types_distribution": {
+    "full_article": 456,
+    "clause": 707,
+    "partial_article": 23
+  },
+  "articles_with_amendments": 0,
+  "articles_with_clauses": 265,
+  "processing_timestamp": "2025-07-29T18:22:18.280646"
+}

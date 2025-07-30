@@ -3,7 +3,7 @@ from flask_cors import CORS
 from routes.upload import upload_bp
 from routes.parse import parse_bp
 from routes.case import case_bp
-from routes.review import case_bp as review_bp
+from routes.review import review_bp
 
 app = Flask(__name__)
 

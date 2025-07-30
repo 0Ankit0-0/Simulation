@@ -6,25 +6,34 @@ import docx
 import easyocr
 import torch
 from PIL import Image
-from transformers import pipeline
+from transformers import pipeline, Blip2Processor, Blip2ForConditionalGeneration
 from contextlib import contextmanager
 from datetime import datetime
 import tempfile
 import hashlib
+import gc
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
 class EvidenceParser:
-    """Optimized evidence parser with lazy loading and error handling"""
+    """Comprehensive evidence parser with lazy loading, AI vision, OCR, and error handling"""
     
     def __init__(self):
+        # Initialize all models as None for lazy loading
         self._ocr_reader = None
         self._summarizer = None
-        self.max_text_length = 50000  # Limit text processing
+        self._blip_model = None
+        self._blip_processor = None
+        
+        # Configuration
+        self.max_text_length = 50000
         self.max_summary_length = 200
-    
+        self.max_pages_pdf = 100
+        self.max_image_dimension = 2000
+
     @property
     def ocr_reader(self):
         """Lazy load OCR reader"""
@@ -37,15 +46,16 @@ class EvidenceParser:
                 )
                 logger.info("OCR reader initialized")
             except Exception as e:
-                logger.error(f"Failed to initialize OCR reader: {e}")
-                raise
+                logger.error(f"OCR Reader initialization failed: {e}")
+                self._ocr_reader = None
         return self._ocr_reader
-    
+
     @property
     def summarizer(self):
-        """Lazy load summarizer"""
+        """Lazy load summarizer with fallback"""
         if self._summarizer is None:
             try:
+                # Try with specific model first
                 self._summarizer = pipeline(
                     "summarization",
                     model="t5-small",
@@ -53,35 +63,56 @@ class EvidenceParser:
                     framework="pt",
                     device=0 if torch.cuda.is_available() else -1
                 )
-                logger.info("Summarizer initialized")
+                logger.info("Summarizer initialized with t5-small")
             except Exception as e:
-                logger.error(f"Failed to initialize summarizer: {e}")
-                # Fallback to CPU
+                logger.error(f"Failed to initialize t5-small summarizer: {e}")
                 try:
-                    self._summarizer = pipeline(
-                        "summarization",
-                        model="t5-small",
-                        tokenizer="t5-small",
-                        framework="pt",
-                        device=-1
-                    )
-                    logger.info("Summarizer initialized on CPU")
+                    # Fallback to default model
+                    self._summarizer = pipeline("summarization", device=-1)
+                    logger.info("Summarizer initialized with default model on CPU")
                 except Exception as fallback_error:
-                    logger.error(f"Failed to initialize summarizer on CPU: {fallback_error}")
+                    logger.error(f"Failed to initialize summarizer: {fallback_error}")
                     self._summarizer = None
         return self._summarizer
-    
+
+    @property
+    def blip_processor(self):
+        """Lazy load BLIP processor"""
+        if self._blip_processor is None:
+            try:
+                self._blip_processor = Blip2Processor.from_pretrained("Salesforce/blip2-opt-2.7b")
+                logger.info("BLIP processor initialized")
+            except Exception as e:
+                logger.error(f"BLIP processor load failed: {e}")
+                self._blip_processor = None
+        return self._blip_processor
+
+    @property
+    def blip_model(self):
+        """Lazy load BLIP model"""
+        if self._blip_model is None:
+            try:
+                self._blip_model = Blip2ForConditionalGeneration.from_pretrained(
+                    "Salesforce/blip2-opt-2.7b",
+                    torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
+                    device_map="auto"
+                )
+                logger.info("BLIP model initialized")
+            except Exception as e:
+                logger.error(f"BLIP model load failed: {e}")
+                self._blip_model = None
+        return self._blip_model
+
     def get_file_type(self, filepath):
         """Detect actual file type using python-magic"""
         try:
-            # Use python-magic for accurate file type detection
             mime_type = magic.from_file(filepath, mime=True)
             return mime_type
         except Exception as e:
             logger.warning(f"Could not detect MIME type for {filepath}: {e}")
             # Fallback to extension-based detection
             return filepath.lower().split('.')[-1]
-    
+
     def validate_file_integrity(self, filepath):
         """Basic file integrity check"""
         try:
@@ -99,7 +130,7 @@ class EvidenceParser:
         
         except Exception as e:
             return False, f"File validation error: {str(e)}"
-    
+
     def calculate_file_hash(self, filepath):
         """Calculate file hash for integrity and deduplication"""
         try:
@@ -111,7 +142,25 @@ class EvidenceParser:
         except Exception as e:
             logger.error(f"Error calculating file hash: {e}")
             return None
-    
+
+    def blip_caption(self, image_path, question="Describe this image"):
+        """Generate image caption using BLIP2"""
+        if self.blip_processor is None or self.blip_model is None:
+            return None
+
+        try:
+            device = "cuda" if torch.cuda.is_available() else "cpu"
+            image = Image.open(image_path).convert("RGB")
+            inputs = self.blip_processor(images=image, text=question, return_tensors="pt").to(device)
+
+            with torch.no_grad():
+                output = self.blip_model.generate(**inputs, max_new_tokens=256)
+                caption = self.blip_processor.tokenizer.decode(output[0], skip_special_tokens=True)
+            return caption.strip()
+        except Exception as e:
+            logger.error(f"BLIP caption generation failed: {e}")
+            return None
+
     def parse_pdf(self, filepath):
         """Parse PDF with enhanced error handling"""
         try:
@@ -125,12 +174,9 @@ class EvidenceParser:
             page_count = len(doc)
             
             # Limit processing for very large PDFs
-            max_pages = 100
-            if page_count > max_pages:
-                logger.warning(f"PDF has {page_count} pages, limiting to {max_pages}")
-                pages_to_process = max_pages
-            else:
-                pages_to_process = page_count
+            pages_to_process = min(page_count, self.max_pages_pdf)
+            if page_count > self.max_pages_pdf:
+                logger.warning(f"PDF has {page_count} pages, limiting to {self.max_pages_pdf}")
             
             for page_num in range(pages_to_process):
                 try:
@@ -168,7 +214,7 @@ class EvidenceParser:
                 "error": f"PDF parsing failed: {str(e)}",
                 "file_hash": self.calculate_file_hash(filepath)
             }
-    
+
     def parse_docx(self, filepath):
         """Parse DOCX with enhanced error handling"""
         try:
@@ -194,13 +240,17 @@ class EvidenceParser:
             text = "\n".join(paragraphs)
             
             # Extract additional metadata
-            core_props = doc.core_properties
-            metadata = {
-                "author": core_props.author,
-                "created": str(core_props.created) if core_props.created else None,
-                "modified": str(core_props.modified) if core_props.modified else None,
-                "title": core_props.title
-            }
+            try:
+                core_props = doc.core_properties
+                metadata = {
+                    "author": core_props.author,
+                    "created": str(core_props.created) if core_props.created else None,
+                    "modified": str(core_props.modified) if core_props.modified else None,
+                    "title": core_props.title
+                }
+            except Exception as meta_error:
+                logger.warning(f"Could not extract metadata: {meta_error}")
+                metadata = {}
             
             return {
                 "type": "docx",
@@ -220,9 +270,9 @@ class EvidenceParser:
                 "error": f"DOCX parsing failed: {str(e)}",
                 "file_hash": self.calculate_file_hash(filepath)
             }
-    
+
     def parse_image(self, filepath):
-        """Parse image with enhanced OCR and error handling"""
+        """Parse image with enhanced OCR, BLIP captioning, and error handling"""
         try:
             # Validate file first
             is_valid, validation_error = self.validate_file_integrity(filepath)
@@ -248,35 +298,38 @@ class EvidenceParser:
                     img = img.convert('RGB')
                 
                 # Resize if image is too large (for memory efficiency)
-                max_dimension = 2000
-                if max(width, height) > max_dimension:
-                    img.thumbnail((max_dimension, max_dimension), Image.Resampling.LANCZOS)
+                if max(width, height) > self.max_image_dimension:
+                    img.thumbnail((self.max_image_dimension, self.max_image_dimension), Image.Resampling.LANCZOS)
                     logger.info(f"Image resized from {width}x{height} to {img.size}")
             
             # Perform OCR
+            text = ""
+            avg_confidence = 0.0
             try:
-                result = self.ocr_reader.readtext(filepath, detail=0, paragraph=True)
-                text = "\n".join(result) if result else ""
-                
-                # Additional OCR with different settings if first attempt yields little text
-                if len(text.strip()) < 10:
-                    result_detailed = self.ocr_reader.readtext(filepath, detail=0, paragraph=False)
-                    text_detailed = " ".join(result_detailed) if result_detailed else ""
-                    if len(text_detailed) > len(text):
-                        text = text_detailed
-                
-                confidence_scores = []
-                if result:
+                if self.ocr_reader:
+                    # Try paragraph mode first
+                    result = self.ocr_reader.readtext(filepath, detail=0, paragraph=True)
+                    text = "\n".join(result) if result else ""
+                    
+                    # If paragraph mode yields little text, try word mode
+                    if len(text.strip()) < 10:
+                        result_detailed = self.ocr_reader.readtext(filepath, detail=0, paragraph=False)
+                        text_detailed = " ".join(result_detailed) if result_detailed else ""
+                        if len(text_detailed) > len(text):
+                            text = text_detailed
+                    
+                    # Get confidence scores
                     detailed_result = self.ocr_reader.readtext(filepath, detail=1)
-                    confidence_scores = [item[2] for item in detailed_result if len(item) > 2]
-                
-                avg_confidence = sum(confidence_scores) / len(confidence_scores) if confidence_scores else 0
+                    if detailed_result:
+                        confidences = [item[2] for item in detailed_result if len(item) > 2]
+                        avg_confidence = sum(confidences) / len(confidences) if confidences else 0.0
                 
             except Exception as ocr_error:
                 logger.error(f"OCR failed for {filepath}: {ocr_error}")
-                text = ""
-                avg_confidence = 0
-            
+
+            # Generate BLIP caption
+            blip_caption = self.blip_caption(filepath, question="What does this image show?")
+
             return {
                 "type": "image",
                 "filename": os.path.basename(filepath),
@@ -288,6 +341,7 @@ class EvidenceParser:
                     "format": img_format,
                     "mode": img_mode
                 },
+                "blip_caption": blip_caption or "",
                 "file_hash": self.calculate_file_hash(filepath)
             }
             
@@ -300,7 +354,7 @@ class EvidenceParser:
                 "error": f"Image parsing failed: {str(e)}",
                 "file_hash": self.calculate_file_hash(filepath)
             }
-    
+
     def generate_summary(self, text, max_length=None):
         """Generate summary with fallback options"""
         if not text or not text.strip():
@@ -327,7 +381,7 @@ class EvidenceParser:
                 
                 result = summarizer(
                     input_text,
-                    max_length=min(max_length, 150),  # T5 model limits
+                    max_length=min(max_length, 150),  # Model limits
                     min_length=min(50, max_length // 2),
                     do_sample=False,
                     truncation=True
@@ -345,7 +399,7 @@ class EvidenceParser:
             logger.error(f"Summarization error: {e}")
             # Final fallback: simple truncation
             return self.extractive_summary(text, max_length)
-    
+
     def extractive_summary(self, text, max_length):
         """Simple extractive summary as fallback"""
         sentences = text.replace('\n', ' ').split('. ')
@@ -365,7 +419,7 @@ class EvidenceParser:
                 break
         
         return summary.strip() or (text[:max_length] + "..." if len(text) > max_length else text)
-    
+
     def parse_evidence(self, filepath):
         """Main evidence parsing function with comprehensive error handling"""
         try:
@@ -383,7 +437,7 @@ class EvidenceParser:
                 parsed = self.parse_pdf(filepath)
             elif ext == "docx" or "officedocument" in mime_type:
                 parsed = self.parse_docx(filepath)
-            elif ext in ["jpg", "jpeg", "png"] or "image" in mime_type:
+            elif ext in ["jpg", "jpeg", "png", "gif", "bmp", "tiff"] or "image" in mime_type:
                 parsed = self.parse_image(filepath)
             else:
                 logger.warning(f"Unsupported file type: {ext} (mime: {mime_type})")
@@ -431,30 +485,43 @@ class EvidenceParser:
                 "file_hash": self.calculate_file_hash(filepath) if filepath and os.path.exists(filepath) else None
             }
 
+    def cleanup_resources(self):
+        """Clean up loaded models and resources"""
+        if self._ocr_reader is not None:
+            del self._ocr_reader
+            self._ocr_reader = None
+        
+        if self._summarizer is not None:
+            del self._summarizer
+            self._summarizer = None
+            
+        if self._blip_model is not None:
+            del self._blip_model
+            self._blip_model = None
+            
+        if self._blip_processor is not None:
+            del self._blip_processor
+            self._blip_processor = None
+        
+        # Force garbage collection
+        gc.collect()
+        logger.info("Parser resources cleaned up")
+
+
 # Global parser instance
 parser_instance = EvidenceParser()
+
 
 def parse_evidence(filepath):
     """Public function to parse evidence files"""
     return parser_instance.parse_evidence(filepath)
 
-# Cleanup function for testing/maintenance
+
 def cleanup_resources():
     """Clean up loaded models and resources"""
     global parser_instance
-    if parser_instance._ocr_reader is not None:
-        del parser_instance._ocr_reader
-        parser_instance._ocr_reader = None
-    
-    if parser_instance._summarizer is not None:
-        del parser_instance._summarizer
-        parser_instance._summarizer = None
-    
-    # Force garbage collection
-    import gc
-    gc.collect()
-    
-    logger.info("Parser resources cleaned up")
+    parser_instance.cleanup_resources()
+
 
 # Context manager for temporary resource management
 @contextmanager
@@ -464,8 +531,14 @@ def temporary_parser():
     try:
         yield temp_parser
     finally:
-        # Cleanup temporary resources
-        if temp_parser._ocr_reader is not None:
-            del temp_parser._ocr_reader
-        if temp_parser._summarizer is not None:
-            del temp_parser._summarizer
+        temp_parser.cleanup_resources()
+
+
+if __name__ == "__main__":
+    parser = EvidenceParser()
+    
+    result = parser.parse_evidence("example.pdf")
+    print(f"Parsed {result['filename']}: {result['processing_status']}")
+    print(f"Summary: {result.get('summary', 'No summary available')}")
+    
+    parser.cleanup_resources()

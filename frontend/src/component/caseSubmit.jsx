@@ -51,10 +51,9 @@ function CaseSubmit() {
       setForm({ title: "", description: "", case_type: "criminal" });
       setFiles([]);
 
-      // Navigate to review page with the actual case ID
       setTimeout(() => {
         navigate(`/review/${caseId}`);
-      }, 1500); // Give user time to see the success message
+      }, 1500); 
     } catch (err) {
       console.error(err);
       const errorMessage =
