@@ -1,6 +1,7 @@
 from .posecute import ProsecutorAgent
 from .defense import DefenseAgent
 from .judge import JudgeAgent
+import random
 
 def run_courtroom_simulation():
     # Initialize agents
@@ -10,7 +11,7 @@ def run_courtroom_simulation():
 
     turns = []
     last_statement = None
-    for _ in range(10):  # Simulate 5 turns
+    for _ in range(random.randint(10, 20)):  
         # Prosecutor's turn
         prosecution_thought = prosecutor.think(last_statement)
         prosecution_statement = prosecutor.speak(prosecution_thought)
