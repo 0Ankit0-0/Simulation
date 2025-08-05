@@ -11,7 +11,6 @@ import pickle
 from pathlib import Path
 import logging
 
-# Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -33,7 +32,6 @@ class LegalEmbeddings:
             for word in words:
                 word_freq[word] = word_freq.get(word, 0) + 1
         
-        # Sort by frequency and take top vocab_size words
         sorted_words = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)
         
         # Add special tokens
@@ -50,11 +48,11 @@ class LegalEmbeddings:
     def encode_text(self, text: str, max_length: int = 512) -> torch.Tensor:
         """Convert text to tensor of indices"""
         words = text.lower().split()
-        indices = [self.word2idx.get(word, 1) for word in words]  # 1 is <UNK>
+        indices = [self.word2idx.get(word, 1) for word in words] 
         
         # Pad or truncate
         if len(indices) < max_length:
-            indices.extend([0] * (max_length - len(indices)))  # 0 is <PAD>
+            indices.extend([0] * (max_length - len(indices)))
         else:
             indices = indices[:max_length]
         
@@ -130,9 +128,9 @@ class LegalReasoningTransformer(nn.Module):
         self.output_projection = nn.Linear(hidden_size, vocab_size)
         
         # Legal-specific heads
-        self.legal_section_head = nn.Linear(hidden_size, 573)  # Number of IPC sections
+        self.legal_section_head = nn.Linear(hidden_size, 573) 
         self.evidence_relevance_head = nn.Linear(hidden_size, 1)
-        self.argument_strength_head = nn.Linear(hidden_size, 5)  # 1-5 strength score
+        self.argument_strength_head = nn.Linear(hidden_size, 5) 
         
     def forward(
         self,
@@ -165,7 +163,7 @@ class LegalReasoningTransformer(nn.Module):
         
         if output_legal_analysis:
             # Legal-specific predictions
-            pooled = x.mean(dim=1)  # Global average pooling
+            pooled = x.mean(dim=1) 
             outputs.update({
                 'legal_sections': self.legal_section_head(pooled),
                 'evidence_relevance': torch.sigmoid(self.evidence_relevance_head(pooled)),
@@ -207,7 +205,7 @@ class EvidenceAnalysisModel(nn.Module):
     def __init__(self, hidden_size: int = 256):
         super().__init__()
         self.evidence_encoder = nn.Sequential(
-            nn.Linear(300, hidden_size),  # Assuming 300-dim embeddings
+            nn.Linear(300, hidden_size), 
             nn.ReLU(),
             nn.Dropout(0.2),
             nn.Linear(hidden_size, hidden_size)
@@ -234,7 +232,7 @@ class EvidenceAnalysisModel(nn.Module):
             nn.Linear(hidden_size, 128),
             nn.ReLU(),
             nn.Dropout(0.2),
-            nn.Linear(128, 10)  # 10 evidence types
+            nn.Linear(128, 10) 
         )
     
     def forward(self, evidence_embedding: torch.Tensor, case_embedding: torch.Tensor):
@@ -323,7 +321,7 @@ class LegalAgentModel(nn.Module):
     
     def __init__(
         self,
-        agent_type: str,  # 'prosecutor', 'defense', 'judge'
+        agent_type: str, 
         base_model: LegalReasoningTransformer,
         hidden_size: int = 512
     ):
@@ -332,7 +330,7 @@ class LegalAgentModel(nn.Module):
         self.base_model = base_model
         
         # Agent-specific layers
-        self.role_embedding = nn.Embedding(3, hidden_size)  # 3 agent types
+        self.role_embedding = nn.Embedding(3, hidden_size) 
         self.strategy_generator = nn.Sequential(
             nn.Linear(hidden_size, hidden_size * 2),
             nn.ReLU(),
@@ -342,14 +340,14 @@ class LegalAgentModel(nn.Module):
         
         # Agent-specific output heads
         if agent_type == 'prosecutor':
-            self.charge_predictor = nn.Linear(hidden_size, 573)  # IPC sections
+            self.charge_predictor = nn.Linear(hidden_size, 573) 
             self.evidence_selector = nn.Linear(hidden_size, 1)
         elif agent_type == 'defense':
-            self.defense_strategy = nn.Linear(hidden_size, 10)  # Defense types
+            self.defense_strategy = nn.Linear(hidden_size, 10) 
             self.counter_argument = nn.Linear(hidden_size, hidden_size)
-        else:  # judge
-            self.verdict_head = nn.Linear(hidden_size, 3)  # Guilty, Not Guilty, Insufficient
-            self.sentence_predictor = nn.Linear(hidden_size, 100)  # Sentence types
+        else: 
+            self.verdict_head = nn.Linear(hidden_size, 3) 
+            self.sentence_predictor = nn.Linear(hidden_size, 100) 
     
     def forward(
         self,
@@ -364,7 +362,7 @@ class LegalAgentModel(nn.Module):
         role_embed = self.role_embedding(torch.tensor([agent_id]))
         
         # Generate strategy
-        hidden = base_output['logits'].mean(dim=1)  # Pool sequence
+        hidden = base_output['logits'].mean(dim=1) 
         if context_embedding is not None:
             hidden = hidden + context_embedding
         
@@ -391,7 +389,7 @@ class LegalAgentModel(nn.Module):
                 'defense_type': self.defense_strategy(strategy),
                 'counter_arg': self.counter_argument(strategy)
             })
-        else:  # judge
+        else: 
             outputs.update({
                 'verdict': self.verdict_head(strategy),
                 'sentence': self.sentence_predictor(strategy)
@@ -530,7 +528,6 @@ class LegalNLPPipeline:
             "neutral": 1 - (pos_count + neg_count) / len(doc)
         }
 
-# Training utilities
 class LegalModelTrainer:
     """Training utilities for legal models"""
     
@@ -560,12 +557,12 @@ class LegalModelTrainer:
             # Compute loss (example for language modeling)
             logits = outputs['logits']
             labels = input_ids.clone()
-            labels[:, :-1] = input_ids[:, 1:]  # Shift for next token prediction
+            labels[:, :-1] = input_ids[:, 1:] 
             
             loss = F.cross_entropy(
                 logits[:, :-1].reshape(-1, logits.size(-1)),
                 labels[:, :-1].reshape(-1),
-                ignore_index=0  # Ignore padding
+                ignore_index=0 
             )
             
             # Backward pass
@@ -598,7 +595,6 @@ class LegalModelTrainer:
         self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
         logger.info(f"Model loaded from {path}")
 
-# Example usage and testing
 if __name__ == "__main__":
     # Initialize components
     embeddings = LegalEmbeddings()
