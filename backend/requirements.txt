@@ -1,0 +1,15 @@
+flask
+flask-cors
+pymongo
+python-dotenv
+cerberus
+werkzeug
+pymongo
+PyMuPDF
+opencv-python-headless
+python-magic
+pytesseract
+pillow
+numpy
+easyocr
+transformers
