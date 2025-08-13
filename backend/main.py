@@ -7,12 +7,17 @@ from routes.review import review_bp
 
 app = Flask(__name__)
 
-# Configure CORS properly
-CORS(app, origins=["http://localhost:5173", "http://127.0.0.1:5173"], 
-     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-     allow_headers=["Content-Type", "Authorization"])
+# Correct CORS settings
+CORS(app, origins=[
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://solid-invention-r4wwx5966wqpfx759-5173.app.github.dev"  # frontend domain, not backend
+], 
+methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+allow_headers=["Content-Type", "Authorization"],
+supports_credentials=True)
 
-# Routes using blueprints
+# Routes
 app.register_blueprint(upload_bp, url_prefix="/api")
 app.register_blueprint(parse_bp, url_prefix="/api")
 app.register_blueprint(case_bp, url_prefix="/api")

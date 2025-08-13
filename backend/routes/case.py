@@ -6,6 +6,7 @@ from datetime import datetime
 from bson.objectid import ObjectId
 from werkzeug.utils import secure_filename
 from cerberus import Validator
+from flask_cors import cross_origin
 
 from services.parser_ai import parse_evidence
 from model.case_model import save_case, get_case_by_id
@@ -101,7 +102,8 @@ def ensure_upload_directory():
         return False
 
 
-@case_bp.route("/submit_case", methods=["POST"])
+@case_bp.route("/submit_case", methods=["POST", "OPTIONS"])
+@cross_origin("https://solid-invention-r4wwx5966wqpfx759-5173.app.github.dev", supports_credentials=True)
 def submit_case():
     """Submit a new case with evidence files"""
     try:

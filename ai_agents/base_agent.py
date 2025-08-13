@@ -1,5 +1,6 @@
 import logging
 from typing import Dict, List, Optional, Tuple, Any, Union
+import local_model
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -22,7 +23,7 @@ class BaseAgent:
         self.memory = []
         
         # AI integration properties
-        self.local_model = None
+        self.local_model = local_model
         self.pretrained_model = None
         self.api_client = None
         
