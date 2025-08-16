@@ -11,7 +11,7 @@ from contextlib import contextmanager
 from datetime import datetime
 import tempfile
 import hashlib
-import gc
+import gcv
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)

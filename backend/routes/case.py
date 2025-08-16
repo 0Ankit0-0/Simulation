@@ -6,7 +6,7 @@ from datetime import datetime
 from bson.objectid import ObjectId
 from werkzeug.utils import secure_filename
 from cerberus import Validator
-from flask_cors import cross_origin
+# Remove flask_cors import - we handle CORS globally
 
 from services.parser_ai import parse_evidence
 from model.case_model import save_case, get_case_by_id
@@ -36,26 +36,23 @@ case_schema = {
         "type": "string",
         "allowed": [
             "civil",
-            "criminal",
+            "criminal", 
             "family",
             "corporate",
             "constitutional",
-        ],  # ✅ Added
+        ],
         "required": True,
     },
 }
-
 
 def validate_case_data(data):
     """Validate case input data"""
     v = Validator(case_schema)
     return v.validate(data), v.errors
 
-
 def allowed_file(filename):
     """Check if file extension is allowed"""
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
-
 
 def validate_file(file):
     """Comprehensive file validation"""
@@ -78,7 +75,6 @@ def validate_file(file):
 
     return True, "Valid file"
 
-
 def generate_secure_filename(original_filename, case_id):
     """Generate secure unique filename"""
     if not original_filename:
@@ -91,7 +87,6 @@ def generate_secure_filename(original_filename, case_id):
     except IndexError:
         return None
 
-
 def ensure_upload_directory():
     """Ensure upload directory exists"""
     try:
@@ -101,11 +96,15 @@ def ensure_upload_directory():
         logger.error(f"Failed to create upload directory: {e}")
         return False
 
-
 @case_bp.route("/submit_case", methods=["POST", "OPTIONS"])
-@cross_origin("https://solid-invention-r4wwx5966wqpfx759-5173.app.github.dev", supports_credentials=True)
 def submit_case():
-    """Submit a new case with evidence files"""
+    """Submit a new case with evidence files - CORS handled globally"""
+    
+    # Log the request for debugging
+    logger.info(f"Received {request.method} request to /submit_case")
+    logger.info(f"Origin: {request.headers.get('Origin', 'No origin')}")
+    logger.info(f"Content-Type: {request.headers.get('Content-Type', 'No content-type')}")
+    
     try:
         # Extract form data
         title = request.form.get("title", "").strip()
@@ -252,7 +251,6 @@ def submit_case():
         logger.error(f"Unexpected error in submit_case: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
-
 @case_bp.route("/get_case/<case_id>", methods=["GET"])
 def get_case(case_id):
     """Retrieve case by ID"""
@@ -274,7 +272,6 @@ def get_case(case_id):
     except Exception as e:
         logger.error(f"Error retrieving case {case_id}: {e}")
         return jsonify({"error": "Internal server error"}), 500
-
 
 @case_bp.route("/get_cases", methods=["GET"])
 def get_cases():
@@ -305,7 +302,6 @@ def get_cases():
     except Exception as e:
         logger.error(f"Error retrieving cases: {e}")
         return jsonify({"error": "Internal server error"}), 500
-
 
 @case_bp.errorhandler(413)
 def too_large(e):

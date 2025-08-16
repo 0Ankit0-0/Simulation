@@ -1,13 +1,17 @@
+
 from db.mongo import case_collection
 
 def save_case(case_data):
     """Save a new case to the database"""
+    if case_collection is None:
+        raise ConnectionError("Database connection not available")
     try:
         result = case_collection.insert_one(case_data)
         return str(result.inserted_id)
     except Exception as e:
         print(f"Error saving case: {str(e)}")
         raise e
+
 
 def get_case_by_id(case_id):
     """Retrieve a case by its case_id"""

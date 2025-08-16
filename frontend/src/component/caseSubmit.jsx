@@ -13,7 +13,7 @@ function CaseSubmit() {
   const [response, setResponse] = useState("");
   const [error, setError] = useState("");
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -43,7 +43,10 @@ function CaseSubmit() {
 
     try {
       const res = await api.post("/submit_case", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        withCredentials: true, // Important for CORS
       });
 
       const caseId = res.data.case_id;
@@ -53,11 +56,23 @@ function CaseSubmit() {
 
       setTimeout(() => {
         navigate(`/review/${caseId}`);
-      }, 1500); 
+      }, 1500);
     } catch (err) {
-      console.error(err);
-      const errorMessage =
-        err.response?.data?.error || err.message || "Unknown error";
+      console.error("Submission error:", err);
+
+      // Better error handling
+      let errorMessage = "Unknown error";
+      if (err.code === "ERR_NETWORK") {
+        errorMessage =
+          "Cannot connect to server. Please check if the backend is running.";
+      } else if (err.response?.status === 401) {
+        errorMessage = "Unauthorized. Please check your credentials.";
+      } else if (err.response?.data?.error) {
+        errorMessage = err.response.data.error;
+      } else if (err.message) {
+        errorMessage = err.message;
+      }
+
       setError("Error: " + errorMessage);
       setResponse("");
     } finally {
