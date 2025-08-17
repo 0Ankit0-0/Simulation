@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from services.parser import extract_text_from_file as extract_text
+from services.parser_ai import parse_evidence as extract_text
 import os
 
 parse_bp = Blueprint('parse', __name__)

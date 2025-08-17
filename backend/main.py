@@ -12,9 +12,9 @@ CORS(app,
     origins=[
         "http://localhost:5173",
         "http://127.0.0.1:5173", 
-        "https://solid-invention-r4wwx5966wqpfx759-5173.app.github.dev",
-        "https://*.app.github.dev",  # Allow all GitHub Codespaces domains
-        "*"  # Allow all origins for development
+        "https://curly-space-doodle-69wwpx655p96f5gjq-5173.app.github.dev",
+        "https://*.app.github.dev",  
+        "*"  
     ],
     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=[

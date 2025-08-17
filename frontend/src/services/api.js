@@ -2,11 +2,11 @@ import axios from "axios";
 
 // Use the correct GitHub Codespaces backend URL
 const API_BASE_URL =
-  "https://solid-invention-r4wwx5966wqpfx759-5000.app.github.dev/api" || "http://localhost:5000/api";
+  "https://curly-space-doodle-69wwpx655p96f5gjq-5000.app.github.dev/api" || "http://localhost:5000/api";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 120000, // 120 second timeout for file uploads
+  // timeout: 120000, // 120 second timeout for file uploads
   withCredentials: false, // GitHub Codespaces doesn't need credentials for public ports
   headers: {
     Accept: "application/json",

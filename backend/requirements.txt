@@ -1,15 +1,53 @@
-flask
-flask-cors
-pymongo
-python-dotenv
-cerberus
-werkzeug
-pymongo
-PyMuPDF
-opencv-python-headless
-python-magic
-pytesseract
-pillow
-numpy
-easyocr
-transformers
+# ------------------------
+# Core Flask dependencies
+# ------------------------
+Flask==2.3.3
+flask-cors==4.0.0
+pymongo==4.5.0
+cerberus==1.3.4
+werkzeug==2.3.7
+python-dotenv==1.0.0
+
+# ------------------------
+# Document processing
+# ------------------------
+PyMuPDF==1.23.3       # PDF parsing
+python-docx==0.8.11   # DOCX parsing
+pdf2image==1.16.3     # Convert PDF to images
+python-magic==0.4.27  # File type detection
+
+# ------------------------
+# OCR & Image processing
+# ------------------------
+easyocr==1.7.0              # Main OCR engine (~500MB)
+opencv-python-headless==4.8.1.78  # Headless OpenCV (for servers)
+pillow==10.0.0              # Image handling
+numpy==1.24.3               # Dependency for OpenCV/EasyOCR
+pytesseract==0.3.10         # Backup OCR engine
+
+# ------------------------
+# AI / NLP Models
+# ------------------------
+transformers==4.33.3
+sentence-transformers==2.2.2
+accelerate==0.23.0
+
+# ------------------------
+# Cloud Integrations
+# ------------------------
+google-cloud-vision==3.4.5
+google-cloud-storage==2.10.0
+
+# ------------------------
+# Optional: GPU acceleration (comment out if not needed)
+# ------------------------
+# torch==2.0.1
+# torchvision==0.15.2
+
+# ------------------------
+# System dependencies (install via apt / yum, not pip)
+# ------------------------
+# tesseract-ocr   (for pytesseract)
+# poppler-utils   (for pdf2image)
+# libgl1-mesa-glx (for OpenCV)
+# ------------------------
