@@ -1,18 +1,17 @@
 import React from "react";
-import CaseReview from "./component/caseReview";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import CaseSubmit from "./component/caseSubmit";
-
+import Home from "./pages/home";
+import Navbar from "./components/homepageComponents/navbar";
+import CasePage from "./components/caseComponents/caseDetails";
 function App() {
   return (
     <div>
-      <h1 className="text-3xl bg-amber-300 p-4 text-center">
-        Welcome to the Courtroom Simulation
-      </h1>
       <Router>
+        <Navbar />
         <Routes>
-          <Route path="/" element={<CaseSubmit />} />
-          <Route path="/review/:caseId" element={<CaseReview />} />
+          <Route path="/" element={<Home />} />
+          <CasePage path="/case/:caseId" element={<CasePage />} />
+          {/* Add more routes as needed */}
         </Routes>
       </Router>
     </div>
