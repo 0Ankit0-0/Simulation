@@ -86,7 +86,7 @@ Open http://localhost:5173 in your browser.
 
 | Dashboard | Case Cards | New Case Submission | Legal Assistant Chat |
 |-----------|------------|--------------------|---------------------|
-| ![Image 1](Image 1.png) | ![Image 2](assets/jurix-screenshot-2.png) | ![Image 3](assets/jurix-screenshot-3.png) | ![Image 4](assets/jurix-screenshot-4.png) |
+| ![Image 1](Image 1.png) | ![Image 2](Image 2.png) | ![Image 3](Image 3.png) | ![Image 4](Image 4.png) |
 
 ---
 
