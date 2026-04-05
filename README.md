@@ -1,119 +1,100 @@
-# Jurix: AI Courtroom Simulation
+# ⚖️ Jurix — AI Courtroom Simulation Platform
 
-Jurix is an interactive AI-driven courtroom simulation platform designed to mimic real-world legal proceedings. It allows users to upload cases, evidence, and documents, and then simulates courtroom interactions with AI agents representing Prosecutor, Defense, and Judge roles. This tool is ideal for law students, educators, and legal professionals to practice arguments and study courtroom dynamics in a safe and controlled environment.
+**Jurix** is an AI-driven courtroom simulation system that replicates real-world judicial proceedings using autonomous legal agents. It enables users to analyze cases, test arguments, and understand courtroom dynamics through structured, role-based AI reasoning.
 
-## Features
+Designed for **law students, researchers, and legal-tech innovators**, Jurix provides a controlled environment to simulate litigation workflows—from evidence submission to final verdict.
 
-### AI Agents for Courtroom Roles:
+---
 
-- **ProsecutorAgent**: Generates prosecutorial arguments using legal datasets.
-- **DefenseAgent**: Formulates defense strategies and counter-arguments.
-- **JudgeAgent**: Evaluates arguments, maintains courtroom flow, and renders verdicts.
+## 🚀 Core Capabilities
 
-### Evidence Parsing:
+### 🧠 Role-Based AI Agents
 
-- Upload PDFs, DOCX, images, or text documents.
-- AI-powered parser converts evidence into structured summaries.
-- Users can review, approve, or edit parsed evidence before simulation.
+Jurix models courtroom interactions using specialized agents:
 
-### Legal Knowledge Base:
+- **ProsecutorAgent**  
+  Constructs legally grounded arguments using structured legal datasets.
 
-- Supports IPC, CrPC, Constitution, and other Indian legal frameworks.
-- Agents leverage structured datasets for reasoning.
+- **DefenseAgent**  
+  Generates counter-arguments, identifies inconsistencies, and builds defense strategies.
 
-### Simulation Workflow:
+- **JudgeAgent**  
+  Moderates proceedings, evaluates arguments, and delivers reasoned verdicts.
 
-- Upload case files and evidence.
-- AI parses and summarizes evidence.
-- Start courtroom simulation with interactive AI agents.
-- Receive detailed case summary including arguments, counterarguments, and verdict.
+---
 
-### Multi-Tier Fallback AI:
+### 📂 Evidence Intelligence Pipeline
 
-- **Primary**: Local custom-trained legal model.
-- **Secondary**: Pre-trained open models.
-- **Tertiary**: OpenAI / Gemini API integration for enhanced reasoning.
+- Supports **PDF, DOCX, images, and raw text**
+- OCR + NLP-based parsing converts unstructured input into:
+  - Structured facts
+  - Key entities
+  - Argument-ready summaries
+- Human-in-the-loop validation:
+  - Edit / approve parsed evidence before simulation
 
-### Frontend & Backend:
+---
 
-- **Frontend**: React + Tailwind CSS
-- **Backend**: Flask (Python) with JSON/MongoDB for data storage.
+### ⚖️ Legal Knowledge Integration
 
-## Installation
+- Indian legal frameworks:
+  - IPC (Indian Penal Code)
+  - CrPC (Criminal Procedure Code)
+  - Constitution of India
+- Structured datasets enable **context-aware legal reasoning**, not generic LLM responses
 
-Clone the repository:
+---
 
+### 🔄 Simulation Workflow
+
+1. Upload case files and evidence  
+2. Parse and structure legal data  
+3. Validate extracted evidence  
+4. Initiate courtroom simulation  
+5. Observe:
+   - Arguments (Prosecution vs Defense)
+   - Judicial reasoning
+   - Final verdict  
+
+---
+
+### 🧩 Multi-Tier AI Architecture
+
+To ensure robustness and offline capability:
+
+- **Primary Layer** → Custom-trained legal models  
+- **Secondary Layer** → Open-source LLMs  
+- **Fallback Layer** → External APIs (OpenAI / Gemini)
+
+**Benefits:**
+- Reliability  
+- Cost control  
+- Graceful degradation  
+
+---
+
+## 🏗️ System Architecture
+
+### Frontend
+- React (Vite)
+- Tailwind CSS  
+- Component-driven UI for case management and simulation
+
+### Backend
+- Flask (Python)
+- REST API architecture
+- MongoDB / JSON-based storage
+
+### AI Stack
+- PyTorch (agent logic)
+- OCR + NLP pipelines
+- LLM orchestration (local + API fallback)
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone Repository
 ```bash
 git clone https://github.com/your-username/jurix.git
 cd jurix
-```
-
-Setup Python environment:
-
-```bash
-python -m venv venv
-source venv/bin/activate   # Linux / macOS
-venv\Scripts\activate      # Windows
-pip install -r requirements.txt
-```
-
-Run the backend:
-
-```bash
-cd backend
-python app.py
-```
-
-Start the frontend:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Open http://localhost:5173 in your browser.
-
-## Usage
-
-- Upload case evidence via the CaseSubmit page.
-- Review and approve parsed evidence in CaseReview.
-- Launch simulation to interact with AI agents.
-- Observe AI-generated legal arguments and verdicts.
-- Optionally export summaries for study or training.
-
-## Screenshots
-
-| Dashboard | Case Cards | New Case Submission | Legal Assistant Chat |
-|-----------|------------|--------------------|---------------------|
-| ![Image 1](Image 1.png) | ![Image 2](Image 2.png) | ![Image 3](Image 3.png) | ![Image 4](Image 4.png) |
-
----
-
-## Datasets Used
-
-- IPC (Indian Penal Code)
-- CrPC (Criminal Procedure Code)
-- Constitution of India
-- Mock cases and legal dialogues for training
-
-## Contributing
-
-Contributions are welcome!
-
-- Fork the repository
-- Create a new branch
-- Submit pull requests with improvements or bug fixes
-  
----
-
-Built as a solo endeavor, **JURIX** was later carried into the arena of **Avishkar 2025**, alongside **Dhruv Suthar** and **Zoya Khan** where it was presented as a working simulation of AI-assisted judicial reasoning.
-
-> Special credit to:  
-> **Dhruv Suthar**  
-> **Zoya Khan**
-
----
-## License
-
-MIT License
