@@ -82,17 +82,13 @@ Open http://localhost:5173 in your browser.
 - Observe AI-generated legal arguments and verdicts.
 - Optionally export summaries for study or training.
 
-## Folder Structure
+## Screenshots
 
-```
-jurix/
-├── frontend/          # React + Tailwind UI
-├── backend/           # Flask APIs, OCR, and parsing services
-├── ai_agents/         # Prosecutor, Defense, Judge AI modules
-├── models/            # Local legal model (PyTorch)
-├── data/              # Legal datasets and mock cases
-└── README.md
-```
+| Dashboard | Case Cards | New Case Submission | Legal Assistant Chat |
+|-----------|------------|--------------------|---------------------|
+| ![Image 1](Image 1.png) | ![Image 2](assets/jurix-screenshot-2.png) | ![Image 3](assets/jurix-screenshot-3.png) | ![Image 4](assets/jurix-screenshot-4.png) |
+
+---
 
 ## Datasets Used
 
