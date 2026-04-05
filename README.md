@@ -108,7 +108,16 @@ Contributions are welcome!
 - Fork the repository
 - Create a new branch
 - Submit pull requests with improvements or bug fixes
+  
+---
 
+Built as a solo endeavor, **JURIX** was later carried into the arena of **Avishkar 2025**, alongside **Dhruv Suthar** and **Zoya Khan** — where it was presented as a working simulation of AI-assisted judicial reasoning.
+
+> Special credit to:  
+> **Dhruv Suthar**  
+> **Zoya Khan**
+
+---
 ## License
 
 MIT License
